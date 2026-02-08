@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظور | الفخامة في التهيئة العقارية</title>
+    <!-- Google Fonts: Cairo & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --gold: #b58e4d;
+            --gold-light: #d4b483;
+            --gold-muted: #967440;
+            --black: #121212;
+            --deep-black: #0a0a0a;
+            --beige: #f7f3f0;
+            --soft-gray: #7a7a7a;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--beige);
+            overflow-x: hidden;
+            color: var(--black);
+        }
+        .playfair { font-family: 'Playfair Display', serif; }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+        }
+        
+        .luxury-shadow {
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.04);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(181, 142, 77, 0.1);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* تعتيم احترافي ناعم جداً للصور الخلفية */
+        .image-overlay-dark {
+            background: linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
+        }
+
+        /* تصميم العنوان الرئيسي المطور */
+        .hero-title-refined {
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+        .title-stroke {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+            color: transparent;
+        }
+        
+        .title-accent-wrap {
+            position: relative;
+            display: inline-block;
+        }
+        .title-accent-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0.1em;
+            right: -10%;
+            width: 120%;
+            height: 0.15em;
+            background: var(--gold);
+            opacity: 0.2;
+            z-index: -1;
+            transform: skewX(-20deg);
+        }
+
+        /* تنسيق خطوات العمل - تم تعديل الألوان لتكون واضحة */
+        .step-card {
+            position: relative;
+            padding: 5rem 2.5rem 4rem;
+            transition: all 0.5s ease;
+            background: white;
+            border: 1px solid rgba(181, 142, 77, 0.05);
+        }
+        .step-number-watermark {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 5rem;
+            font-weight: 900;
+            color: #b58e4d; /* لون ذهبي واضح بدلاً من الأبيض المخفي */
+            opacity: 0.15;
+            line-height: 1;
+            z-index: 0;
+            user-select: none;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--beige); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-muted); border-radius: 10px; }
+    </style>
+</head>
+<body class="text-[#1a1a1a]">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-[100] transition-all duration-500 py-6 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center bg-white/80 backdrop-blur-xl px-8 py-4 rounded-full border border-white/30 luxury-shadow">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 gold-gradient flex items-center justify-center rounded-full shadow-md">
+                    <i data-lucide="layout" class="text-white w-5 h-5"></i>
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="text-xl font-black tracking-tighter">منظـور</span>
+                    <span class="text-[9px] text-[#b58e4d] font-bold tracking-[0.2em] uppercase">Luxury Staging</span>
+                </div>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-10 font-bold text-[11px] uppercase tracking-[0.15em]">
+                <a href="#" class="hover:text-[#b58e4d] transition-colors">الرئيسية</a>
+                <a href="#about" class="hover:text-[#b58e4d] transition-colors">عن المؤسسة</a>
+                <a href="#process" class="hover:text-[#b58e4d] transition-colors">آلية العمل</a>
+                <a href="#packages" class="hover:text-[#b58e4d] transition-colors">الباقات</a>
+            </div>
+
+            <button class="bg-[#1a1a1a] text-white px-7 py-3 rounded-full hover:bg-[#b58e4d] transition-all shadow-lg font-bold text-xs">
+                احجز موعداً
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center overflow-hidden bg-[#0a0a0a]">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=100&w=1920" 
+                 class="w-full h-full object-cover scale-110 opacity-50" id="heroImage" alt="Luxury Interior">
+            <div class="absolute inset-0 image-overlay-dark"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full text-white pt-20">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-8 space-y-10 animate-in fade-in slide-in-from-right duration-1000">
+                    <!-- Premium Badge -->
+                    <div class="inline-flex items-center gap-4 bg-white/5 backdrop-blur-md px-6 py-2.5 rounded-full border border-white/10 shadow-2xl">
+                        <div class="relative flex items-center justify-center">
+                            <span class="absolute w-3 h-3 bg-[#b58e4d] rounded-full animate-ping opacity-40"></span>
+                            <span class="relative w-2 h-2 bg-[#b58e4d] rounded-full"></span>
+                        </div>
+                        <span class="text-[10px] font-bold tracking-[0.4em] uppercase text-gray-300">مؤسسة منظور للتهيئة العقارية</span>
+                    </div>
+
+                    <!-- Redesigned Hero Title -->
+                    <div class="space-y-4">
+                        <h1 class="hero-title-refined tracking-tighter">
+                            <span class="block text-4xl md:text-6xl font-light text-gray-400 mb-4 opacity-80 uppercase tracking-[0.2em]">نصنع</span>
+                            <span class="block text-7xl md:text-[10rem] font-black leading-none">
+                                الفارق <span class="title-accent-wrap"><span class="text-[#b58e4d] playfair italic">البصري</span></span>
+                            </span>
+                        </h1>
+                        <p class="text-lg md:text-2xl text-gray-400 leading-relaxed font-light max-w-2xl border-r-2 border-[#b58e4d]/30 pr-8 mt-10">
+                            بين الجدران الصامتة والمنزل الدافئ تكمن لمسة "منظور". نرفع قيمة عقارك السوقية بأدوات فنية مدروسة وألوان متناغمة تسرق الأبصار وتصنع القرار.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-6 pt-6">
+                        <button class="gold-gradient text-white px-14 py-6 rounded-2xl font-black text-lg hover:scale-105 hover:brightness-110 transition-all shadow-2xl shadow-[#b58e4d]/30 flex items-center gap-4">
+                            مشاهدة المعرض
+                            <i data-lucide="arrow-left" class="w-6 h-6"></i>
+                        </button>
+                        <button class="bg-white/5 backdrop-blur-md border border-white/20 text-white px-14 py-6 rounded-2xl font-bold text-lg hover:bg-white hover:text-black transition-all">
+                            تواصل معنا
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Stats Table -->
+        <div class="absolute bottom-12 left-12 hidden lg:grid grid-cols-3 gap-12 z-10 bg-black/30 backdrop-blur-3xl p-10 rounded-[2.5rem] border border-white/10 shadow-2xl">
+            <div class="text-center">
+                <div class="text-4xl font-black text-[#b58e4d] tracking-tighter">+450</div>
+                <div class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.2em] mt-2 text-right">عقار مهيأ</div>
+            </div>
+            <div class="text-center border-x border-white/10 px-12">
+                <div class="text-4xl font-black text-[#b58e4d] tracking-tighter">35%</div>
+                <div class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.2em] mt-2 text-center">بيع أسرع</div>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl font-black text-[#b58e4d] tracking-tighter">12%</div>
+                <div class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.2em] mt-2 text-left">قيمة إضافية</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Excellence Section (Stats Bar) -->
+    <section class="relative -mt-16 z-20 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-px bg-gray-100 p-1.5 rounded-[3rem] luxury-shadow overflow-hidden bg-white/95 backdrop-blur-xl">
+            <div class="bg-white p-10 text-center rounded-[2.5rem]">
+                <div class="text-4xl font-black text-[#1a1a1a] tracking-tighter">+450</div>
+                <div class="text-[9px] text-[#b58e4d] font-black uppercase tracking-widest mt-2">عقار تم تجهيزه</div>
+            </div>
+            <div class="bg-transparent p-10 text-center">
+                <div class="text-4xl font-black text-[#b58e4d] tracking-tighter">35%</div>
+                <div class="text-[9px] text-gray-500 font-black uppercase tracking-widest mt-2">تسييل أسرع للأصول</div>
+            </div>
+            <div class="bg-white p-10 text-center rounded-[2.5rem]">
+                <div class="text-4xl font-black text-[#1a1a1a] tracking-tighter">12%</div>
+                <div class="text-[9px] text-[#b58e4d] font-black uppercase tracking-widest mt-2">ارتفاع في القيمة</div>
+            </div>
+            <div class="bg-[#1a1a1a] p-10 text-center rounded-[2.5rem]">
+                <div class="text-4xl font-black text-[#b58e4d] tracking-tighter">98%</div>
+                <div class="text-[9px] text-gray-400 font-black uppercase tracking-widest mt-2">رضا كبار المطورين</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Section -->
+    <section class="py-40 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-32 reveal">
+                <span class="text-[#b58e4d] font-black tracking-[0.4em] uppercase text-[10px] italic">Transformation Story</span>
+                <h2 class="text-6xl font-black tracking-tighter">قبل وبعد اللمسة</h2>
+                <div class="w-20 h-1 gold-gradient mx-auto rounded-full mt-6 opacity-60"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                <div class="space-y-12 reveal">
+                    <h3 class="text-4xl font-black leading-tight italic playfair">كيف نحول الفراغ إلى <br><span class="text-[#b58e4d]">فرصة استثمارية؟</span></h3>
+                    <p class="text-[#7a7a7a] text-xl leading-relaxed font-light">
+                        الوحدات الفارغة تشتت انتباه المشتري وتجعل المساحات تبدو أصغر. فريقنا المتخصص يعيد صياغة الفراغ ليخلق تجربة حسية تجذب المشتري عاطفياً ومادياً.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="check" class="text-[#b58e4d] w-6 h-6 mt-1"></i>
+                            <span class="font-bold text-lg">إبراز نقاط القوة في المسقط الأفقي</span>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="check" class="text-[#b58e4d] w-6 h-6 mt-1"></i>
+                            <span class="font-bold text-lg">توزيع الإضاءة لخلق دفء منزلي</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6 reveal">
+                    <div class="space-y-6">
+                        <div class="relative overflow-hidden rounded-[2.5rem] h-72 bg-gray-200 shadow-xl shadow-black/5">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover grayscale opacity-50">
+                            <div class="absolute top-6 right-6 bg-black/80 text-white px-4 py-1.5 rounded-full text-[9px] font-black tracking-widest uppercase">Before</div>
+                        </div>
+                        <div class="relative overflow-hidden rounded-[2.5rem] h-56 border-2 border-[#b58e4d]/10">
+                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="space-y-6 pt-16">
+                        <div class="relative overflow-hidden rounded-[2.5rem] h-56 border border-gray-100 shadow-xl shadow-black/5">
+                            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative overflow-hidden rounded-[2.5rem] h-72 border-2 border-[#b58e4d] shadow-2xl shadow-[#b58e4d]/20">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover">
+                            <div class="absolute bottom-6 left-6 gold-gradient text-white px-5 py-2 rounded-full text-[9px] font-black tracking-widest uppercase shadow-lg">Luxury After</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Method (Process Section - Re-Designed with Visible Numbers) -->
+    <section id="process" class="py-40 bg-[#faf9f6] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-12 mb-32 reveal text-black">
+                <div class="space-y-6">
+                    <span class="text-[#b58e4d] font-black tracking-[0.4em] uppercase text-[10px] italic">Expert Methodology</span>
+                    <h2 class="text-6xl font-black tracking-tighter">رحلة التغيير</h2>
+                </div>
+                <p class="max-w-md text-[#555] text-xl leading-relaxed font-light italic">خطوات دقيقة ومدروسة تفصل عقارك عن لقب <span class="text-[#1a1a1a] font-bold">"الأسرع مبيعاً"</span> في السوق العقاري.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 luxury-shadow overflow-hidden rounded-[3rem]">
+                <!-- Step 01 -->
+                <div class="step-card group reveal">
+                    <span class="step-number-watermark">01</span>
+                    <div class="relative z-10 space-y-4">
+                        <h4 class="text-2xl font-black text-[#1a1a1a] group-hover:text-[#b58e4d] transition-colors">المعاينة والتحليل</h4>
+                        <p class="text-[#666] text-base leading-relaxed font-light">زيارة ميدانية لدراسة الإضاءة والمساحات وتحديد الفئة المستهدفة للعقار لبناء استراتيجية تهيئة ناجحة.</p>
+                    </div>
+                </div>
+                <!-- Step 02 -->
+                <div class="step-card group reveal" style="transition-delay: 100ms">
+                    <span class="step-number-watermark">02</span>
+                    <div class="relative z-10 space-y-4">
+                        <h4 class="text-2xl font-black text-[#1a1a1a] group-hover:text-[#b58e4d] transition-colors">خطة التهيئة</h4>
+                        <p class="text-[#666] text-base leading-relaxed font-light">اختيار الأثاث والإكسسوارات المناسبة من مخزون منظور الفاخر والحصري بما يتلاءم مع طبيعة المشروع.</p>
+                    </div>
+                </div>
+                <!-- Step 03 -->
+                <div class="step-card group reveal" style="transition-delay: 200ms">
+                    <span class="step-number-watermark">03</span>
+                    <div class="relative z-10 space-y-4">
+                        <h4 class="text-2xl font-black text-[#1a1a1a] group-hover:text-[#b58e4d] transition-colors">التنفيذ السريع</h4>
+                        <p class="text-[#666] text-base leading-relaxed font-light">نقل وترتيب الوحدة بالكامل خلال مدة أقصاها 72 ساعة بدقة متناهية وبإشراف مهندسين متخصصين.</p>
+                    </div>
+                </div>
+                <!-- Step 04 -->
+                <div class="step-card group reveal" style="transition-delay: 300ms">
+                    <span class="step-number-watermark">04</span>
+                    <div class="relative z-10 space-y-4">
+                        <h4 class="text-2xl font-black text-[#1a1a1a] group-hover:text-[#b58e4d] transition-colors">إتمام الصفقة</h4>
+                        <p class="text-[#666] text-base leading-relaxed font-light">بعد البيع أو التأجير، نقوم بسحب الأثاث لترك المساحة للمالك الجديد بكل سلاسة واحترافية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-40 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center space-y-6 mb-32 reveal">
+                <span class="text-[#b58e4d] font-black tracking-[0.4em] uppercase text-[10px]">Premium Plans</span>
+                <h2 class="text-6xl font-black tracking-tighter">باقات تليق بطموحكم</h2>
+                <p class="text-gray-500 max-w-xl mx-auto text-lg font-light mt-6">سواء كنت فرداً يرغب في بيع منزله، أو مطوراً يملك مشروعاً ضخماً، لدينا الحل المناسب.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Package 1 -->
+                <div class="glass-card p-12 rounded-[3.5rem] space-y-10 card-hover transition-all duration-700 reveal shadow-2xl shadow-black/5">
+                    <div class="flex justify-between items-start">
+                        <div class="w-16 h-16 bg-white flex items-center justify-center rounded-2xl shadow-sm">
+                            <i data-lucide="home" class="text-[#b58e4d] w-8 h-8"></i>
+                        </div>
+                        <span class="bg-[#b58e4d]/5 text-[#b58e4d] px-4 py-1 rounded-full text-[10px] font-black tracking-widest uppercase">Essential</span>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-3xl font-black italic playfair">الباقة العصرية</h3>
+                        <p class="text-[#7a7a7a] text-sm leading-relaxed">مثالية للشقق والوحدات السكنية الصغيرة لزيادة الجاذبية البصرية وتوضيح أبعاد المكان.</p>
+                    </div>
+                    <div class="text-4xl font-black tracking-tighter">2,500 <span class="text-sm font-bold text-gray-400">ريال/شهر</span></div>
+                    <ul class="space-y-5 pt-10 border-t border-gray-100">
+                        <li class="flex items-center gap-4 text-sm font-bold"><i data-lucide="check" class="text-[#b58e4d] w-4 h-4"></i> أثاث مينيماليست حديث</li>
+                        <li class="flex items-center gap-4 text-sm font-bold"><i data-lucide="check" class="text-[#b58e4d] w-4 h-4"></i> إكسسوارات جدارية فنية</li>
+                        <li class="flex items-center gap-4 text-sm font-bold"><i data-lucide="check" class="text-[#b58e4d] w-4 h-4"></i> تقرير تسويقي مصور</li>
+                    </ul>
+                    <button class="w-full border-2 border-[#1a1a1a] py-5 rounded-2xl font-black hover:bg-[#1a1a1a] hover:text-white transition-all text-sm uppercase tracking-widest">اطلبها الآن</button>
+                </div>
+
+                <!-- Package 2 (VIP Highlighted) -->
+                <div class="bg-[#1a1a1a] text-white p-12 rounded-[3.5rem] space-y-10 relative overflow-hidden scale-105 shadow-[0_50px_100px_-20px_rgba(181,142,77,0.3)] z-10 reveal" style="transition-delay: 150ms">
+                    <div class="absolute top-0 right-0 w-32 h-32 gold-gradient opacity-20 rounded-bl-[100px]"></div>
+                    <div class="flex justify-between items-start">
+                        <div class="w-16 h-16 bg-white/10 flex items-center justify-center rounded-2xl shadow-lg">
+                            <i data-lucide="star" class="text-[#b58e4d] w-8 h-8"></i>
+                        </div>
+                        <span class="gold-gradient text-white px-5 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase shadow-md">Signature</span>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-3xl font-black italic playfair text-[#b58e4d]">الباقة الملكية</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">تجهيز كامل للفلل والقصور بقطع أثاث فاخرة تليق بعملائك وتصنع انطباعاً مبهراً.</p>
+                    </div>
+                    <div class="text-4xl font-black tracking-tighter">5,500 <span class="text-sm font-bold text-gray-600">ريال/شهر</span></div>
+                    <ul class="space-y-5 pt-10 border-t border-white/5">
+                        <li class="flex items-center gap-4 text-sm font-bold"><i data-lucide="check" class="text-[#b58e4d] w-4 h-4"></i> أثاث كلاسيكي وعصري فاخر</li>
+                        <li class="flex items-center gap-4 text-sm font-bold"><i data-lucide="check" class="text-[#b58e4d] w-4 h-4"></i> تنسيق حدائق وتراسات خارجية</li>
+                        <li class="flex items-center gap-4 text-sm font-bold"><i data-lucide="check" class="text-[#b58e4d] w-4 h-4"></i> جولة افتراضية 360 درجة</li>
+                        <li class="flex items-center gap-4 text-sm font-bold"><i data-lucide="check" class="text-[#b58e4d] w-4 h-4"></i> تصوير سينمائي فائق الجودة</li>
+                    </ul>
+                    <button class="w-full gold-gradient py-5 rounded-2xl font-black text-black hover:scale-105 transition-all shadow-xl text-sm uppercase tracking-widest">الباقة الأكثر مبيعاً</button>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="glass-card p-12 rounded-[3.5rem] space-y-10 card-hover transition-all duration-700 reveal shadow-2xl shadow-black/5" style="transition-delay: 300ms">
+                    <div class="flex justify-between items-start">
+                        <div class="w-16 h-16 bg-white flex items-center justify-center rounded-2xl shadow-sm">
+                            <i data-lucide="briefcase" class="text-[#b58e4d] w-8 h-8"></i>
+                        </div>
+                        <span class="bg-black/5 text-black px-4 py-1 rounded-full text-[10px] font-black tracking-widest uppercase">Business</span>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-3xl font-black italic playfair">باقة المطورين</h3>
+                        <p class="text-[#7a7a7a] text-sm leading-relaxed">حلول مخصصة وشاملة لمشاريع المجمعات السكنية الكبرى والمكاتب التجارية.</p>
+                    </div>
+                    <div class="text-3xl font-black italic playfair text-gray-100">تواصل معنا <span class="text-sm font-bold text-gray-400">للتسعير</span></div>
+                    <ul class="space-y-5 pt-10 border-t border-gray-100">
+                        <li class="flex items-center gap-4 text-sm font-bold"><i data-lucide="check" class="text-[#b58e4d] w-4 h-4"></i> تجهيز وحدات عرض متعددة</li>
+                        <li class="flex items-center gap-4 text-sm font-bold"><i data-lucide="check" class="text-[#b58e4d] w-4 h-4"></i> عقود سنوية وخصومات حجم</li>
+                        <li class="flex items-center gap-4 text-sm font-bold"><i data-lucide="check" class="text-[#b58e4d] w-4 h-4"></i> إدارة وصيانة دورية للأثاث</li>
+                    </ul>
+                    <button class="w-full border-2 border-[#1a1a1a] py-5 rounded-2xl font-black hover:bg-[#1a1a1a] hover:text-white transition-all text-sm uppercase tracking-widest">تواصل مع قسم المشاريع</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer class="bg-[#0c0c0c] text-white pt-40 pb-16 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-32 mb-40">
+                <div class="space-y-12 reveal">
+                    <h2 class="text-7xl font-black tracking-tighter leading-none">هل أنت مستعد <br> <span class="text-[#b58e4d] playfair italic">للتحول؟</span></h2>
+                    <p class="text-gray-500 text-xl leading-relaxed max-w-sm italic playfair font-light">
+                        "المنظور هو كل شيء في العقارات. دعنا نساعدك في تغيير منظور عملائك لعقارك اليوم."
+                    </p>
+                    <div class="space-y-8 text-2xl font-bold">
+                        <div class="flex items-center gap-8 group cursor-pointer hover:text-[#b58e4d] transition-colors duration-500">
+                            <i data-lucide="phone" class="text-[#b58e4d] w-7 h-7"></i> 92000XXXX
+                        </div>
+                        <div class="flex items-center gap-8 group cursor-pointer underline underline-offset-8 decoration-[#b58e4d]/30 hover:text-[#b58e4d] transition-colors duration-500">
+                            <i data-lucide="mail" class="text-[#b58e4d] w-7 h-7"></i> hello@manzoor.sa
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 p-16 rounded-[4rem] backdrop-blur-xl border border-white/5 shadow-2xl reveal">
+                    <h4 class="text-3xl font-black mb-10 tracking-tighter italic playfair">طلب استشارة مجانية</h4>
+                    <form class="space-y-10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <input type="text" placeholder="الاسم الكامل" class="bg-transparent border-b-2 border-white/10 py-4 outline-none focus:border-[#b58e4d] transition-all font-bold text-sm">
+                            <input type="tel" placeholder="رقم الجوال" class="bg-transparent border-b-2 border-white/10 py-4 outline-none focus:border-[#b58e4d] transition-all font-bold text-sm">
+                        </div>
+                        <select class="w-full bg-transparent border-b-2 border-white/10 py-4 outline-none focus:border-[#b58e4d] transition-all font-bold text-gray-500 text-sm appearance-none cursor-pointer">
+                            <option>نوع العقار: سلفا / شقة</option>
+                            <option>نوع العقار: مشروع سكني</option>
+                            <option>نوع العقار: مساحة تجارية</option>
+                        </select>
+                        <button class="w-full gold-gradient text-black py-6 rounded-2xl font-black text-xl hover:scale-[1.03] transition-all shadow-[0_20px_40px_rgba(181,142,77,0.3)]">إرسال الطلب</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center py-12 border-t border-white/5 gap-8">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 gold-gradient flex items-center justify-center rounded-full shadow-lg">
+                        <i data-lucide="layout" class="text-white w-5 h-5"></i>
+                    </div>
+                    <span class="text-2xl font-black tracking-tighter">منظـور</span>
+                </div>
+                <div class="flex gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-gray-600">
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">Twitter / X</a>
+                    <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                </div>
+                <p class="text-[10px] text-gray-700 font-bold tracking-widest uppercase italic">© 2024 Manzoor Staging. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 80) {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.add('py-6');
+                navbar.classList.remove('py-3');
+            }
+            
+            const scrollValue = window.scrollY;
+            const heroImage = document.getElementById('heroImage');
+            heroImage.style.transform = `scale(${1.1 + scrollValue * 0.0003}) translateY(${scrollValue * 0.15}px)`;
+        });
+    </script>
+</body>
+</html>
